@@ -4,10 +4,10 @@ import 'package:flutter_modern_way/module/repositories/i_user_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: IUserRepository)
-class UserLoginRepository implements IUserRepository {
+class UserSignupRepository implements IUserRepository {
   IUserDataSource? userDataSource;
 
-  UserLoginRepository(this.userDataSource);
+  UserSignupRepository(this.userDataSource);
 
   @override
   List<User>? getAllUser() => userDataSource?.getAllUser();

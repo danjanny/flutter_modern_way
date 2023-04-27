@@ -3,6 +3,7 @@ import 'package:flutter_modern_way/module/di/injection.dart';
 import 'package:flutter_modern_way/module/use_case/i_user_use_case.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -118,6 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _getUserData() {
     final allUserData = getIt<IUserUseCase>().getAllUser();
+    final userData = getIt<IUserUseCase>().getUser("100");
     print("user length : ${allUserData?.length}");
+    print("user id : ${userData?.id}, ${userData?.fullName}");
   }
 }

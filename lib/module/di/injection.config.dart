@@ -15,7 +15,7 @@ import 'package:flutter_modern_way/module/data_sources/user_data_source.dart'
     as _i4;
 import 'package:flutter_modern_way/module/repositories/i_user_repository.dart'
     as _i5;
-import 'package:flutter_modern_way/module/repositories/user_repository.dart'
+import 'package:flutter_modern_way/module/repositories/user_signup_repository.dart'
     as _i6;
 import 'package:flutter_modern_way/module/use_case/i_user_use_case.dart' as _i7;
 import 'package:flutter_modern_way/module/use_case/user_use_case.dart' as _i8;
@@ -35,7 +35,7 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.factory<_i3.IUserDataSource>(() => _i4.UserDataSource());
     gh.factory<_i5.IUserRepository>(
-        () => _i6.UserLoginRepository(gh<_i3.IUserDataSource>()));
+        () => _i6.UserSignupRepository(gh<_i3.IUserDataSource>()));
     gh.factory<_i7.IUserUseCase>(
         () => _i8.UserUseCase(gh<_i5.IUserRepository>()));
     return this;
