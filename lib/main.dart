@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modern_way/module/di/basic_injection.dart';
+import 'package:flutter_modern_way/module/user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,10 +108,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
+        onPressed: _getUserData,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _getUserData() {
+    List<User>? users = BasicInjection.provideUseCase()?.getAllUser();
+    User? user = BasicInjection.provideUseCase()?.getUser("10");
+    print(
+        'Users data length : ${users?.length}, user : ${user?.fullName}, ${user?.id}');
   }
 }
