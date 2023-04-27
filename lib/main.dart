@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modern_way/module/di/injection.dart';
+import 'package:flutter_modern_way/module/use_case/i_user_use_case.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,10 +108,16 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
+        onPressed: _getUserData,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  void _getUserData() {
+    final allUserData = getIt<IUserUseCase>().getAllUser();
+    print("user length : ${allUserData?.length}");
   }
 }
